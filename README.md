@@ -1,2 +1,0 @@
-# Typescript-Discord-Bot-Template
- 
