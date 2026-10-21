@@ -1,5 +1,6 @@
+import utils from "../../../utils/utils.js";
 import { Command } from "../../../structures/Command.js";
-import { CommandType } from "../../../typings/Command";
+import { CommandType } from "../../../typings/Command.js";
 import { EmbedBuilder } from "discord.js";
 
 export default new Command({
@@ -7,7 +8,7 @@ export default new Command({
     description: "Get a list of available commands.",
     category: "info",
     run: async ({ interaction, client }) => {
-        await interaction.deferReply({ ephemeral: client.config.messages.ephemeral });
+        await interaction.deferReply({ flags: utils.replyFlags() });
         const commandCategories = new Map<string, CommandType[]>();
 
         // Categorize the commands

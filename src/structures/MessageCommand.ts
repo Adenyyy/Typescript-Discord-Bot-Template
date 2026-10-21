@@ -1,4 +1,4 @@
-import { MessageCommandType } from "../typings/MessageCommand";
+import { MessageCommandType } from "../typings/MessageCommand.js";
 
 export class MessageCommand {
     constructor(commandOptions: MessageCommandType) {

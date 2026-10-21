@@ -2,46 +2,34 @@ import { Event } from "../structures/Event.js";
 import { client } from "../index.js";
 import chalk from "chalk";
 import { sendErrorMessage, sendInfoMessage } from "../utils/logger.js";
-import { ActivityType } from "discord.js";
-import { clearInterval } from "timers";
+import { ActivityType, Events, PresenceStatusData } from "discord.js";
 
-export default new Event("ready", () => {
+const activityTypes: Record<string, ActivityType> = {
+    watching: ActivityType.Watching,
+    playing: ActivityType.Playing,
+    competing: ActivityType.Competing,
+    listening: ActivityType.Listening,
+};
+
+export default new Event(Events.ClientReady, () => {
     sendInfoMessage(`Client logged in as: ${chalk.blueBright.underline(client.user.tag)}`);
-    if (client.config.bot_activity.enabled === true) cycleActivities(client, 30000);
-    function cycleActivities(client: any, delay: number) {
-        let activityIndex = 0;
-
-        if (client.config.bot_activity.activities.length === 0) return sendErrorMessage(`No bot activities were provided in 'settings.yml' (bot_activity.activities)`);
-        let status = client.config.bot_activity.status || "online";
-        let type = client.config.bot_activity.type || "playing";
-
-        let activityType: ActivityType;
-        switch (type) {
-            case "watching":
-                activityType = ActivityType.Watching;
-                break;
-            case "playing":
-                activityType = ActivityType.Playing;
-                break;
-            case "competing":
-                activityType = ActivityType.Competing;
-                break;
-            case "listening":
-                activityType = ActivityType.Listening;
-                break;
-            default:
-                return sendErrorMessage(`An invalid activity type was provided in 'settings.json' (bot_activity.type)`);
-        }
-
-        client.user.setPresence({ activities: [{ name: client.config.bot_activity.activities[0], type: type }], status: status });
-
-        setInterval(() => {
-            const activity = client.config.bot_activity.activities[activityIndex];
-
-            client.user.setPresence({ activities: [{ name: activity }] });
-
-            activityIndex = (activityIndex + 1) % client.config.bot_activity.activities.length;
-        }, delay);
-    }
-
+    if (client.config.bot_activity.enabled === true) cycleActivities();
 });
+
+function cycleActivities() {
+    const { activities, status = "online", type = "playing", interval = 30 } = client.config.bot_activity;
+
+    if (!activities?.length) return sendErrorMessage(`No bot activities were provided in 'settings.yml' (bot_activity.activities)`);
+
+    const activityType = activityTypes[type];
+    if (activityType === undefined) return sendErrorMessage(`An invalid activity type was provided in 'settings.yml' (bot_activity.type)`);
+
+    let activityIndex = 0;
+    const setActivity = () => {
+        client.user.setPresence({ activities: [{ name: activities[activityIndex], type: activityType }], status: status as PresenceStatusData });
+        activityIndex = (activityIndex + 1) % activities.length;
+    };
+
+    setActivity();
+    if (activities.length > 1) setInterval(setActivity, interval * 1000);
+}

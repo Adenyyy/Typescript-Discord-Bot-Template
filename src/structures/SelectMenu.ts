@@ -1,4 +1,4 @@
-import { AnySelectMenuType } from "../typings/SelectMenu";
+import { AnySelectMenuType } from "../typings/SelectMenu.js";
 
 export class AnySelectMenu {
     constructor(commandOptions: AnySelectMenuType) {

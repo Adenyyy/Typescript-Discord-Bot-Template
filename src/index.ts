@@ -12,7 +12,6 @@ function printStartMessage() {
         "                                                                                  \n"));
 }
 
-console.log("test");
 printStartMessage();
 
 export const client = new ExtendedClient();

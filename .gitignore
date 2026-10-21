@@ -128,4 +128,4 @@ build/
 
 # Others
 src/config/settings.yml
-.idea
+.idea/

@@ -1,4 +1,4 @@
-import { UserCommandType } from "../typings/UserCommand";
+import { UserCommandType } from "../typings/UserCommand.js";
 
 export class UserCommand {
     constructor(commandOptions: UserCommandType) {

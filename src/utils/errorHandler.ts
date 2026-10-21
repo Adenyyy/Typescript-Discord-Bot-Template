@@ -1,4 +1,3 @@
-import { send } from "process";
 import { sendErrorMessage, sendWarningMessage } from "./logger.js";
 
 export default function errorHandler() {
