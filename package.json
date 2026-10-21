@@ -18,7 +18,10 @@
     "node": ">=22"
   },
   "keywords": [],
-  "author": "Achlon",
+  "author": {
+    "name": "Aden",
+    "url": "https://www.linkedin.com/in/adenyap"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^6.0.1",

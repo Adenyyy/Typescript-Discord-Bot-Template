@@ -89,6 +89,10 @@ A button's `customId` can carry values separated by `/`. For example, `example/1
 
 The client only requests the `Guilds` intent, which is all slash commands need. If your bot needs more, such as `GuildMessages` or `MessageContent`, add them in `src/structures/Client.ts`. Privileged intents must also be enabled in the Developer Portal.
 
+## Author
+
+Made by Aden. Connect with me on [LinkedIn](https://www.linkedin.com/in/adenyap).
+
 ## License
 
 [MIT](LICENSE)
