@@ -1,3 +1,4 @@
+import utils from "../../../utils/utils.js";
 import { Command } from "../../../structures/Command.js";
 import embed from "../../../utils/embed.js";
 
@@ -7,7 +8,7 @@ export default new Command({
     category: "info",
     disabled: false,
     run: async ({ interaction, client }) => {
-        await interaction.deferReply({ ephemeral: client.config.messages.ephemeral });
+        await interaction.deferReply({ flags: utils.replyFlags() });
 
         const botLatency: number = Date.now() - interaction.createdTimestamp;
         const apiLatency: number = Math.round(client.ws.ping);

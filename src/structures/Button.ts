@@ -1,4 +1,4 @@
-import { ButtonType } from "../typings/Button";
+import { ButtonType } from "../typings/Button.js";
 
 export class Button {
     constructor(commandOptions: ButtonType) {

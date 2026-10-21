@@ -1,5 +1,5 @@
 import { UserContextMenuCommandInteraction, GuildMember, PermissionResolvable, UserApplicationCommandData } from "discord.js";
-import { ExtendedClient } from "../structures/Client";
+import { ExtendedClient } from "../structures/Client.js";
 
 /**
  * {

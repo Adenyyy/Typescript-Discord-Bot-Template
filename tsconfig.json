@@ -1,24 +1,22 @@
 {
   "compilerOptions": {
-      "target": "ESNext",
+      "target": "ES2023",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
       "moduleDetection": "auto",
-      "module": "ESNext",
-      "lib": [
-          "es5", "es6", "dom", "dom.iterable"
-      ],
-      "declaration": true,
+      "lib": ["ES2023"],
+      "types": ["node"],
+      "declaration": false,
       "sourceMap": true,
       "outDir": "./build",
       "rootDir": "src",
       "allowJs": true,
       "strict": false,
-      "moduleResolution": "node",
       "resolveJsonModule": true,
       "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true
   },
+  "include": ["src"],
   "exclude": ["build", "node_modules", "tests", ".vscode", ".idea"]
 }

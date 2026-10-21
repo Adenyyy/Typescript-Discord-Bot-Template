@@ -1,3 +1,4 @@
+import { MessageFlags } from "discord.js";
 import { Command } from "../../structures/Command.js";
 
 export default new Command({
@@ -6,6 +7,6 @@ export default new Command({
     category: "misc",
     disabled: true,
     run: async ({ interaction, client }) => {
-        await interaction.reply({ content: "This is an example command.", ephemeral: true });
+        await interaction.reply({ content: "This is an example command.", flags: MessageFlags.Ephemeral });
     }
 });

@@ -1,5 +1,5 @@
 import { AnySelectMenuInteraction, ChannelSelectMenuInteraction, GuildMember, MentionableSelectMenuInteraction, PermissionResolvable, RoleSelectMenuInteraction, StringSelectMenuInteraction, UserSelectMenuInteraction } from "discord.js";
-import { ExtendedClient } from "../structures/Client";
+import { ExtendedClient } from "../structures/Client.js";
 
 /**
  * {

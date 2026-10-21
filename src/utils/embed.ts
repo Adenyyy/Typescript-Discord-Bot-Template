@@ -34,7 +34,7 @@ const embed = {
         }
     ): EmbedBuilder {
         const {
-            color = client.config.messages.colors.main,
+            color = client.config.messages.colors.default,
             title = '',
             description = '',
             fields = [],

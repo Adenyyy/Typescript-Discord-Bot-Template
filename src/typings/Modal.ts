@@ -1,5 +1,5 @@
 import { GuildMember, PermissionResolvable, ModalSubmitInteraction, } from "discord.js";
-import { ExtendedClient } from "../structures/Client";
+import { ExtendedClient } from "../structures/Client.js";
 
 /**
  * {

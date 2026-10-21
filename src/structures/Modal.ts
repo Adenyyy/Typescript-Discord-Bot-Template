@@ -1,4 +1,4 @@
-import { ModalSubmitType } from "../typings/Modal";
+import { ModalSubmitType } from "../typings/Modal.js";
 
 export class ModalSubmit {
     constructor(commandOptions: ModalSubmitType) {
